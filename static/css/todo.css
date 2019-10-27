@@ -1,0 +1,12 @@
+.full-container {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+.finish {
+    background: greenyellow;
+}
+th {
+    position: sticky;
+    top: 0;
+}

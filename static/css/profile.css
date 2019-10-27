@@ -1,0 +1,17 @@
+.full-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.propic-container {
+    width: calc(30% - 5px);
+    background: black;
+}
+.detail-container {
+    width: calc(70% - 5px);
+    background: red;
+}
+.form-control-plaintext:hover {
+    cursor: default;
+}

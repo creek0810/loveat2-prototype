@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block file %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block header %}
+{% include 'component/customer-header.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="full-container">
+        <div class="propic-container">
+
+        </div>
+        <div class="detail-container">
+            <div class="form-group">
+                <label for="user-name">User Name:</label>
+                <input type="text" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="user-name">
+            </div>
+            {% if owner %}
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="age">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}">
+                    <option value="0">male</option>
+                    <option value="1">female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="number" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="email">
+            </div>
+            {% if owner %}
+                <button class="btn btn-primary">Save</button>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

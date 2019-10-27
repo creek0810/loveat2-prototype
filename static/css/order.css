@@ -1,0 +1,10 @@
+.full-container {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+th {
+    position: sticky;
+    top: 0;
+}

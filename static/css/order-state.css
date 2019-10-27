@@ -1,0 +1,21 @@
+.full-container {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+th {
+    position: sticky;
+    top: 0;
+}
+.finish {
+    background: greenyellow;
+}
+.doing {
+    background: royalblue;
+}
+.abort {
+    background: red;
+}
+.unknown {
+    background: orange;
+}

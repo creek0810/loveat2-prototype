@@ -1,0 +1,28 @@
+.full-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    min-height: 0;
+}
+.search-container {
+    padding: 5px;
+    flex-flow: 0;
+    background: royalblue;
+}
+.result-container {
+    flex: 1;
+    max-height: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+#myTabContent{
+    overflow: auto;
+}
+.fixed-table th {
+    position: sticky;
+    top: 0;
+}
