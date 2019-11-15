@@ -1,39 +1,17 @@
 from flask import Flask, render_template, redirect, url_for
-from flask_login import LoginManager, login_user, logout_user, login_required, UserMixin, current_user
+from flask_login import login_required,  current_user
 from datetime import timedelta
+from views import order_web, user_web, user_api, menu_web, another_web
+from lib.auth import User, login_manager, admin_required
 
 
 APP = Flask(__name__)
 APP.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 APP.config['SECRET_KEY'] = "thisdhfiehi"
-login_manager = LoginManager()
+
 login_manager.init_app(APP)
 
-class User(UserMixin):
-    pass
-
-@login_manager.user_loader
-def user_loader(email):
-    user = User()
-    user.id = "admin" 
-    return user
-
-@APP.route('/login', methods=['GET'])
-def login():
-    user = User()
-    user.id = "admin"
-    login_user(user)
-    return redirect(url_for('menu'))
-
-@APP.route('/logout', methods=["GET"])
-def logout():
-    logout_user()
-    return redirect(url_for('menu'))
-
-@APP.route('/')
-def menu():
-    auth = current_user.is_authenticated
-    return render_template('menu.html', auth=auth)
+"""
 
 @APP.route('/cart')
 def cart():
@@ -48,21 +26,11 @@ def profile(isMe):
     else:
         return render_template('profile.html', owner=False, auth=auth)
 
-@APP.route('/orderState')
-def order_state():
-    auth = current_user.is_authenticated
-    return render_template('order-state.html', auth=auth)
-
 @APP.route('/item')
 def add_item():
     auth = current_user.is_authenticated
     return render_template('item.html', auth=auth)
 
-@APP.route('/history')
-@login_required
-def history():
-    auth = current_user.is_authenticated
-    return render_template('history.html', auth=auth)
 
 @APP.route('/another')
 @login_required
@@ -70,17 +38,22 @@ def another():
     auth = current_user.is_authenticated
     return render_template('another.html', auth=auth)
 
-@APP.route('/todo')
-@login_required
-def todo():
-    auth = current_user.is_authenticated
-    return render_template('todo.html', auth=auth)
 
-@APP.route('/order')
-@login_required
-def order():
-    auth = current_user.is_authenticated
-    return render_template('order.html', auth=auth)
+"""
+
+def register_web():
+    APP.register_blueprint(order_web.order_web, url_prefix='/order')
+    APP.register_blueprint(user_web.user_web, url_prefix='/user')
+    APP.register_blueprint(menu_web.menu_web, url_prefix='/menu')
+    APP.register_blueprint(another_web.another_web, url_prefix='/')
+
+def register_api():
+    APP.register_blueprint(user_api.user_api, url_prefix='/api/user')
+
+def run():
+    register_web()
+    register_api()
+    APP.run(debug=True)
 
 if __name__ == '__main__':
-    APP.run(debug=True)
+    run()

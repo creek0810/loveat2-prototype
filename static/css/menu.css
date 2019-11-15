@@ -6,13 +6,11 @@
 }
 .item-container{
     flex: 1;
-    background: black;
     overflow-y: auto;
     padding: 5px;
 }
 .info-container {
     margin-left: 10px;
-    background: red;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

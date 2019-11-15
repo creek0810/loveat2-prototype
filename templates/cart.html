@@ -1,13 +1,11 @@
 {% extends "layout.html" %}
 {% set active_page = "cart" %}
+{% set url = "customer" %}
 
-{% block file %}
+{% block header %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
 {% endblock %}
 
-{% block header %}
-{% include 'component/customer-header.html' %}
-{% endblock %}
 
 {% block content %}
     <div class="cart-container">
@@ -319,7 +317,9 @@
             價格: <span>490</span>元
         </div>
         <div class="op-container">
-            <input type="datetime" id="">
+            <div>
+                取餐時間: <input type="datetime-local" id="">
+            </div>
             <div class="btn-container">
                 <button class="btn btn-primary">Clear</button>
                 <button class="btn btn-primary">Send</button>

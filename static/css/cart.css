@@ -5,7 +5,6 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 5px;
-    background: black;
 }
 
 .item-container {
@@ -22,13 +21,11 @@ th {
     z-index: 2;
 }
 .price-container {
-    background: orange;
     display: flex;
     justify-content: flex-end;
     padding: 5px;
 }
 .op-container {
-    background: red;
     display: flex;
     justify-content: space-between;
     padding: 5px;

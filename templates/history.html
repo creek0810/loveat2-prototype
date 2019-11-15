@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 {% set active_page = "history" %}
 
-{% block file %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
-{% endblock %}
-
 {% block header %}
-{% include 'component/boss-header.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chart-test.js') }}"></script>
 {% endblock %}
 
 {% block content %}
@@ -203,8 +202,296 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="toggle-btn-container">
+                        <button class="btn btn-primary" id="item-analysis-btn">切換詳細資料</button>
+                    </div>
+                    <div id="item-analysis-table">
+                        <table class="table fixed-table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>項目</th>
+                                    <th>數量</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>紅茶</td>
+                                    <td>
+                                       100
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>綠茶</td>
+                                    <td>
+                                       99
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>燻雞三明治</td>
+                                    <td>
+                                       97
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>乳酪三明治</td>
+                                    <td>
+                                       88
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>乳酪蛋餅</td>
+                                    <td>
+                                       80
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>豬肉漢堡</td>
+                                    <td>
+                                       50
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>不好喝的紅茶</td>
+                                    <td>
+                                       0
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="item-analysis-chart" class="hidden">
+                        <div class="chart-container">
+                            <div class="canvas-container">
+                                <canvas id="item-bar-chart">
+
+                                </canvas>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="item-pie-chart">
+
+                                </canvas>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="toggle-btn-container">
+                        <div class="checkbox-container">
+                            <input type="checkbox" name="" id="">性別
+                            <input type="checkbox" name="" id="">年齡
+                        </div>
+                        <button class="btn btn-primary" id="gender-analysis-btn">切換詳細資料</button>
+                    </div>
+                    <div id="gender-analysis-table">
+                        <table class="table fixed-table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>品項</th>
+                                    <th>0-9</th>
+                                    <th>10-19</th>
+                                    <th>20-29</th>
+                                    <th>30-39</th>
+                                    <th>40-49</th>
+                                    <th>50-59</th>
+                                    <th>60+</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>紅茶</td>
+                                    <td>
+                                       50
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>綠茶</td>
+                                    <td>
+                                       50
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>燻雞三明治</td>
+                                    <td>
+                                       50
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>乳酪三明治</td>
+                                    <td>
+                                       50
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>乳酪蛋餅</td>
+                                    <td>
+                                       50
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>豬肉漢堡</td>
+                                    <td>
+                                       50
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>不好喝的紅茶</td>
+                                    <td>
+                                       50
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                    <td>
+                                       40
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="gender-analysis-chart" class="hidden">
+                        <div class="chart-container">
+                            <div class="canvas-container">
+                                <canvas id="female-pie-chart">
+
+                                </canvas>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="male-pie-chart">
+
+                                </canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="canvas-container">
+                                <canvas id="gender-pie-chart">
+
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

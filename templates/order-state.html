@@ -1,12 +1,9 @@
 {% extends "layout.html" %}
 {% set active_page = "order_state" %}
-
-{% block file %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/order-state.css') }}">
-{% endblock %}
+{% set url = "customer" %}
 
 {% block header %}
-{% include 'component/customer-header.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/order-state.css') }}">
 {% endblock %}
 
 {% block content %}

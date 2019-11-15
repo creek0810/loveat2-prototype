@@ -1,13 +1,11 @@
 {% extends "layout.html" %}
 {% set active_page = "order" %}
+{% set url = "boss" %}
 
-{% block file %}
+{% block header %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/order.css') }}">
 {% endblock %}
 
-{% block header %}
-{% include 'component/boss-header.html' %}
-{% endblock %}
 
 {% block content %}
     <div class="full-container">

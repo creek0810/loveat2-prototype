@@ -13,14 +13,13 @@
 
     <!-- general -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
-    {% block file %}
+    {% block header %}
     {% endblock %}
 
 </head>
 <body>
     <div class='app'>
-        {% block header %}
-        {% endblock %}
+        {% include 'component/navbar.html' %}
         <div class="content">
             {% include 'component/login.html' %}
             {% include 'component/register.html' %}

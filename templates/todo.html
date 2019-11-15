@@ -1,12 +1,9 @@
 {% extends "layout.html" %}
 {% set active_page = "todo" %}
-
-{% block file %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/todo.css') }}">
-{% endblock %}
+{% set url = "boss" %}
 
 {% block header %}
-{% include 'component/boss-header.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/todo.css') }}">
 {% endblock %}
 
 {% block content %}

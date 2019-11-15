@@ -26,3 +26,26 @@
     position: sticky;
     top: 0;
 }
+
+.toggle-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+.hidden {
+    display: none;
+}
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.canvas-container {
+    width: calc(50% - 5px);
+}
+
+.checkbox-container {
+    margin-right: 5px;
+
+}
