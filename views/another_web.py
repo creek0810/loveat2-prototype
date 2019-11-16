@@ -14,4 +14,4 @@ def cart():
 
 @another_web.route('/business_time', methods=["GET"])
 def business_time():
-    return "hello"
+    return render_template('business-time.html', auth=current_user.role, name=current_user.id)

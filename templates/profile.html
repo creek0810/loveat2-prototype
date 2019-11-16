@@ -1,52 +1,50 @@
 {% extends "layout.html" %}
 
-{% block file %}
+{% block header %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
 {% endblock %}
 
-{% block header %}
-{% include 'component/customer-header.html' %}
-{% endblock %}
 
 {% block content %}
     <div class="full-container">
         <div class="propic-container">
-
+            <img src="https://pbs.twimg.com/media/DbokNptV4AEXWS8.jpg" alt="">
         </div>
         <div class="detail-container">
             <div class="form-group">
                 <label for="user-name">User Name:</label>
-                <input type="text" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="user-name">
+                <input type="text" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="user-name" value="{{ name }}">
             </div>
             {% if owner %}
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password">
+                    <button class="btn btn-primary">修改</button>
                 </div>
             {% endif %}
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="number" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="age">
+                <input type="number" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="age" value="25">
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select id="gender" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}">
-                    <option value="0">male</option>
+                    <option value="0" selected>male</option>
                     <option value="1">female</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="number" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="phone">
+                <input type="tel" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="phone" value="0905783383">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="email">
+                <input type="email" class="form-control {{ 'form-control-plaintext' if owner == false else '' }}" id="email" value="{{ name }}@gmail.com">
             </div>
             {% if owner %}
+            <div class="save-container">
                 <button class="btn btn-primary">Save</button>
+            </div>
             {% endif %}
-
         </div>
     </div>
 {% endblock %}

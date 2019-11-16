@@ -48,7 +48,7 @@
                 你好 {{name}}
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="/profile/1">個人資料</a>
+                <a class="dropdown-item" href="{{ url_for('user_web.profile', id=name) }}">個人資料</a>
                 {% if auth == "admin" %}
                     <a class="dropdown-item" href="{{ url_for('order_web.reply') }}">管理頁面</a>
                     <a class="dropdown-item" href="{{ url_for('another_web.business_time') }}">設定點餐時間</a>
