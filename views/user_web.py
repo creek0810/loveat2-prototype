@@ -12,7 +12,7 @@ def logout():
 
 @user_web.route('/forgetpassword', methods=["GET"])
 def forgetpassword():
-    return render_template('forgetpassword.html', auth=current_user.role, name=current_user.id)
+    return render_template('forget-password.html', auth=current_user.role, name=current_user.id)
 
 
 @user_web.route('/profile/<id>', methods=['GET'])

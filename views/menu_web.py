@@ -14,36 +14,22 @@ def menu():
 def edit():
     return render_template('menu-edit.html', auth=current_user.role, name=current_user.id)
 
-"""
-@APP.route('/login', methods=['GET'])
-def login():
-    tmp= User()
-    tmp.id = "admin"
-    tmp.role = "admin"
-    login_user(tmp)
-    return redirect(url_for('menu'))
- 
-@APP.route('/login2', methods=['GET'])
-def logi2n():
-    tmp= User()
-    tmp.id = "customer"
-    tmp.role = "customer"
-    login_user(tmp)
-    return redirect(url_for('menu'))
-
-@APP.route('/')
-def menu():
-    tmp = current_user.get_role()
-    return render_template('menu.html', auth=tmp, name="river")
-
-
-@APP.route('/test_admin')
+@menu_web.route('/add/item', methods=["GET"])
 @admin_required
-def test_admin():
-    return "this is admin"
+def add_item():
+    return render_template('edit-add-item.html', auth=current_user.role, name=current_user.id, add=True)
 
-@APP.route('/test_auth')
-@login_required
-def test_auth():
-    return "this is auth
-"""
+@menu_web.route('/add/combo', methods=["GET"])
+@admin_required
+def add_combo():
+    return render_template('edit-add-combo.html', auth=current_user.role, name=current_user.id, add=True)
+
+@menu_web.route('/edit/item', methods=["GET"])
+@admin_required
+def edit_item():
+    return render_template('edit-add-item.html', auth=current_user.role, name=current_user.id, add=False)
+
+@menu_web.route('/edit/combo', methods=["GET"])
+@admin_required
+def edit_combo():
+    return render_template('edit-add-combo.html', auth=current_user.role, name=current_user.id, add=False)

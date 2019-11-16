@@ -13,5 +13,6 @@ def cart():
     return render_template('cart.html', auth=current_user.role, name=current_user.id)
 
 @another_web.route('/business_time', methods=["GET"])
+@admin_required
 def business_time():
     return render_template('business-time.html', auth=current_user.role, name=current_user.id)
