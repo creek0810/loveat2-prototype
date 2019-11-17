@@ -13,9 +13,11 @@
         <li class="nav-item {{ 'active' if active_page == 'cart' else '' }}">
             <a class="nav-link" href="{{ url_for('another_web.cart') }}">點菜單(購物車)</a>
         </li>
+        {% if auth != "anonymous" %}
         <li class="nav-item {{ 'active' if active_page == 'order_state' else '' }}">
             <a class="nav-link" href="{{ url_for('order_web.state') }}">訂單狀態</a>
         </li>
+        {% endif %}
       {% else %}
         <li class="nav-item {{ 'active' if active_page == 'order' else '' }}">
           <a class="nav-link" href="{{ url_for('order_web.reply')}}">顧客點餐</a>
