@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request, url_for
+from flask import Blueprint, render_template, redirect, request, url_for, session
 from flask_login import current_user, login_user
 from lib.auth import User
 
@@ -25,7 +25,7 @@ def login():
             tmpUser.role = i["role"]
             login_user(tmpUser)
             break
-    return redirect(url_for('menu_web.menu'))
+    return redirect(request.referrer)
 
 @user_api.route('/register')
 def register():

@@ -22,8 +22,8 @@ def profile(id):
     print(user_id, id)
     if id == user_id:
         print("owner")
-        return render_template('profile.html', owner=True, auth=current_user.role, name=user_id)
+        return render_template('profile.html', owner=True, auth=current_user.role, name=user_id, id=id)
     elif current_user.role == "admin":
-        return render_template('profile.html', owner=False, auth=current_user.role, name=user_id)
+        return render_template('profile.html', owner=False, auth=current_user.role, name=user_id, id=id)
     else:
         return login_manager.unauthorized()
