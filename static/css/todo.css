@@ -3,9 +3,11 @@
     width: 100%;
     overflow: auto;
 }
+
 .finish {
-    background: greenyellow;
+    background: #CCFF99;
 }
+
 th {
     position: sticky;
     top: 0;

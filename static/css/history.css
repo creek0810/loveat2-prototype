@@ -6,11 +6,17 @@
     align-items: flex-start;
     min-height: 0;
 }
+
 .search-container {
     padding: 5px;
+    border-radius: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 127, 255, 0.5);
     flex-flow: 0;
-    background: royalblue;
+    background: rgba(100, 196, 237, 0.5);
 }
+
 .result-container {
     flex: 1;
     max-height: 100%;
@@ -19,9 +25,11 @@
     flex-direction: column;
     overflow: auto;
 }
-#myTabContent{
+
+#myTabContent {
     overflow: auto;
 }
+
 .fixed-table th {
     position: sticky;
     top: 0;
@@ -32,9 +40,11 @@
     justify-content: flex-end;
     padding: 5px;
 }
+
 .hidden {
     display: none;
 }
+
 .chart-container {
     display: flex;
     justify-content: space-between;
@@ -47,5 +57,4 @@
 
 .checkbox-container {
     margin-right: 5px;
-
 }

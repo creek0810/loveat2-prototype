@@ -8,3 +8,11 @@ th {
     position: sticky;
     top: 0;
 }
+
+.tr1 {
+    background: white;
+}
+
+.tr2 {
+    background: rgba(100, 196, 237, 0.3);
+}

@@ -3,19 +3,24 @@
     width: 100%;
     overflow: auto;
 }
+
 th {
     position: sticky;
     top: 0;
 }
+
 .finish {
-    background: greenyellow;
+    background: #bceb3c;
 }
+
 .doing {
-    background: royalblue;
+    background: #1fffff;
 }
+
 .abort {
-    background: red;
+    background: #ff5b44;
 }
+
 .unknown {
-    background: orange;
+    background: #f8aa27;
 }
